@@ -15,5 +15,5 @@ class AdminQuestion(admin.ModelAdmin):
 
 
 @admin.register(Answer)
-class AdminQuestion(admin.ModelAdmin):
+class AdminAnswers(admin.ModelAdmin):
     list_display = ["question", "text", "is_correct"]

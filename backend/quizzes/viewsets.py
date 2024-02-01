@@ -1,6 +1,8 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
+from django.contrib.contenttypes.models import ContentType
 from django.shortcuts import get_object_or_404
+from rest_framework.decorators import action
 
 from .models import Quiz, Question, Answer
 from .serializers import QuizSerializer, QuestionSerializer, AnswerSerializer
@@ -10,18 +12,40 @@ class QuizViewSet(viewsets.ModelViewSet):
     queryset = Quiz.objects.all()
     serializer_class = QuizSerializer
 
+    @action(
+        methods=["GET"],
+        detail=True
+    )
+    def questions(self, request, pk=None):
+        quiz = self.get_object()
+        questions = Question.objects.filter(quiz=quiz)
+        serializer = QuestionSerializer(questions, many=True)
+
+        return Response(serializer.data)
+
 
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
 
     def perform_create(self, serializer):
-        quiz = serializer.validated_data.get('quiz')
+        quiz = serializer.validated_data.get('quizzes')
 
         if quiz is None:
             return Response({"error": "Quiz is not found"}, status.HTTP_404_NOT_FOUND)
 
         serializer.save(quiz=quiz)
+
+    @action(
+        methods=["GET"],
+        detail=True
+    )
+    def answers(self, request, pk=None):
+        question = self.get_object()
+        answers = Answer.objects.filter(question=question)
+        answers_serializer = AnswerSerializer(answers, many=True)
+
+        return Response(answers_serializer.data)
 
 
 class AnswerViewSet(viewsets.ModelViewSet):
