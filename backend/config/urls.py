@@ -43,6 +43,11 @@ urlpatterns = [
             cache_timeout=0), name='schema-redoc'),
 
     path("admin/", admin.site.urls),
+
     path("api/", include("config.routers")),
-    path("api/auth/", include("djoser.urls.authtoken"))
+
+    path("api/auth/", include("djoser.urls.authtoken")),
+
+    path('silk/', include('silk.urls', namespace='silk')),
 ]
+

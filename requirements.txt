@@ -6,3 +6,4 @@ drf-yasg==1.21.4
 djoser==2.2.0
 setuptools
 faker
+django-silk==5.0.4
