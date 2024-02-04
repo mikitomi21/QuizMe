@@ -1,10 +1,11 @@
 from django.db import models
+from users.models import CustomUser
 
 
 class Quiz(models.Model):
     title = models.CharField(max_length=128)
     description = models.TextField()
-    # author =
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

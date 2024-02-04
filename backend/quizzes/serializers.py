@@ -1,15 +1,18 @@
 from rest_framework import serializers
+from users.serializers import UserSerializer
 from .models import Quiz, Question, Answer
 
 
 class QuizSerializer(serializers.ModelSerializer):
+    author = UserSerializer(read_only=True)
+
     class Meta:
         model = Quiz
-        fields = ("id", "title", "description", "created", "updated")
+        fields = ("id", "author", "title", "description", "created", "updated")
 
 
 class QuestionSerializer(serializers.ModelSerializer):
-    quiz = QuizSerializer
+    quiz = QuizSerializer(read_only=True)
 
     class Meta:
         model = Question
@@ -17,7 +20,7 @@ class QuestionSerializer(serializers.ModelSerializer):
 
 
 class AnswerSerializer(serializers.ModelSerializer):
-    question = QuestionSerializer
+    question = QuestionSerializer(read_only=True)
 
     class Meta:
         model = Answer

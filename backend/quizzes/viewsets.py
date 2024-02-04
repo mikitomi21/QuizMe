@@ -1,16 +1,20 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
-from django.contrib.contenttypes.models import ContentType
-from django.shortcuts import get_object_or_404
 from rest_framework.decorators import action
 
 from .models import Quiz, Question, Answer
+from users.models import CustomUser
 from .serializers import QuizSerializer, QuestionSerializer, AnswerSerializer
+from users.serializers import UserSerializer
 
 
 class QuizViewSet(viewsets.ModelViewSet):
     queryset = Quiz.objects.all()
     serializer_class = QuizSerializer
+
+    def perform_create(self, serializer):
+        author = self.request.user
+        serializer.save(author=author)
 
     @action(
         methods=["GET"],
@@ -30,6 +34,7 @@ class QuestionViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         quiz = serializer.validated_data.get('quizzes')
+        print(quiz)
 
         if quiz is None:
             return Response({"error": "Quiz is not found"}, status.HTTP_404_NOT_FOUND)
