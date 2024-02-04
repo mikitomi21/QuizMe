@@ -36,9 +36,11 @@ class Command(BaseCommand):
                 username="admin",
                 password="zaq1@WSX",
             )
-            self.stdout.write(self.style.SUCCESS(f'Successfully created superuser: {user.username}'))
+            self.stdout.write(
+                self.style.SUCCESS(f"Successfully created superuser: {user.username}")
+            )
         except Exception as e:
-            self.stdout.write(self.style.ERROR(f'Error creating superuser: {e}'))
+            self.stdout.write(self.style.ERROR(f"Error creating superuser: {e}"))
 
     def create_users(self):
         try:
@@ -49,10 +51,10 @@ class Command(BaseCommand):
                     password=fake.password(),
                 )
                 user.save()
-            self.stdout.write(self.style.SUCCESS(f'Successfully created users'))
+            self.stdout.write(self.style.SUCCESS(f"Successfully created users"))
 
         except Exception as e:
-            self.stdout.write(self.style.ERROR(f'Error creating users: {e}'))
+            self.stdout.write(self.style.ERROR(f"Error creating users: {e}"))
 
     def create_quizzes(self):
         quizzes = []
@@ -61,14 +63,14 @@ class Command(BaseCommand):
                 quiz = Quiz(
                     title=fake.sentence(),
                     description=fake.paragraph(),
-                    author=random.choice(CustomUser.objects.all())
+                    author=random.choice(CustomUser.objects.all()),
                 )
                 quiz.save()
                 quizzes.append(quiz)
-            self.stdout.write(self.style.SUCCESS(f'Successfully created quizzes'))
+            self.stdout.write(self.style.SUCCESS(f"Successfully created quizzes"))
 
         except Exception as e:
-            self.stdout.write(self.style.ERROR(f'Error creating quizzes: {e}'))
+            self.stdout.write(self.style.ERROR(f"Error creating quizzes: {e}"))
 
         self.create_questions(quizzes)
 
@@ -80,14 +82,14 @@ class Command(BaseCommand):
                     question = Question(
                         quiz=quiz,
                         text=fake.sentence(),
-                        question_type=random.choice(QUESTION_TYPES)
+                        question_type=random.choice(QUESTION_TYPES),
                     )
                     question.save()
                     questions.append(question)
-            self.stdout.write(self.style.SUCCESS(f'Successfully created questions'))
+            self.stdout.write(self.style.SUCCESS(f"Successfully created questions"))
 
         except Exception as e:
-            self.stdout.write(self.style.ERROR(f'Error creating questions: {e}'))
+            self.stdout.write(self.style.ERROR(f"Error creating questions: {e}"))
 
         self.create_answer(questions)
 
@@ -120,7 +122,7 @@ class Command(BaseCommand):
 
                 elif question.question_type == TypeField.OPEN:
                     continue
-            self.stdout.write(self.style.SUCCESS(f'Successfully created answers'))
+            self.stdout.write(self.style.SUCCESS(f"Successfully created answers"))
 
         except Exception as e:
-            self.stdout.write(self.style.ERROR(f'Error creating answers: {e}'))
+            self.stdout.write(self.style.ERROR(f"Error creating answers: {e}"))

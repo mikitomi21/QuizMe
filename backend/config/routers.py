@@ -7,9 +7,9 @@ from users.viewsets import CustomUserViewSets
 
 router = DefaultRouter()
 
-router.register(r'quizzes', QuizViewSet)
-router.register(r'questions', QuestionViewSet)
-router.register(r'answers', AnswerViewSet)
-router.register(r'users', CustomUserViewSets)
+router.register(r"quizzes", QuizViewSet)
+router.register(r"questions", QuestionViewSet)
+router.register(r"answers", AnswerViewSet)
+router.register(r"users", CustomUserViewSets)
 
 urlpatterns = router.urls

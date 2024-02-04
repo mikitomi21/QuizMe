@@ -6,4 +6,3 @@ class CustomPermissions(permissions.BasePermission):
         if not request.user.is_staff:
             return False
         return super().has_permission(request, view)
-

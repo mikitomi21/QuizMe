@@ -46,13 +46,13 @@ PROJECT_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'corsheaders',
+    "corsheaders",
     "rest_framework",
     "rest_framework_swagger",
     "rest_framework.authtoken",
     "drf_yasg",
     "djoser",
-    "silk"
+    "silk",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
@@ -61,8 +61,8 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
-    'corsheaders.middleware.CorsMiddleware',
-    'silk.middleware.SilkyMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "silk.middleware.SilkyMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -142,25 +142,23 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-AUTH_USER_MODEL = 'users.CustomUser'
+AUTH_USER_MODEL = "users.CustomUser"
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication'
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
     ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-        'rest_framework.permissions.IsAdminUser',
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+        "rest_framework.permissions.IsAdminUser",
     ],
 }
 
 DJOSER = {
     "USER_ID_FIELD": "email",
     "LOGIN_FIELD": "email",
-    "SERIALIZERS": {
-        'current_user': "users.serializers.UserDetailSerializer"
-    }
+    "SERIALIZERS": {"current_user": "users.serializers.UserDetailSerializer"}
     # "CREATE_SESSION_ON_LOGIN": True,
     # 'SEND_ACTIVATION_EMAIL': False,
 }
@@ -168,4 +166,4 @@ DJOSER = {
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")

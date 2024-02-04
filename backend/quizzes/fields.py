@@ -13,8 +13,8 @@ class TypeField(models.CharField):
     ]
 
     def __init__(self, *args, **kwargs):
-        kwargs['choices'] = self.OPTIONS
-        kwargs['max_length'] = 20
+        kwargs["choices"] = self.OPTIONS
+        kwargs["max_length"] = 20
         super().__init__(*args, **kwargs)
 
     def from_db_value(self, value, expression, connection):
