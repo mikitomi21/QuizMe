@@ -158,7 +158,7 @@ REST_FRAMEWORK = {
 DJOSER = {
     "USER_ID_FIELD": "email",
     "LOGIN_FIELD": "email",
-    "SERIALIZERS": {"current_user": "users.serializers.UserDetailSerializer"}
+    "SERIALIZERS": {"current_user": "users.serializers.UserDetailSerializer"},
     # "CREATE_SESSION_ON_LOGIN": True,
     # 'SEND_ACTIVATION_EMAIL': False,
 }

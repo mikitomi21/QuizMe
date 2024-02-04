@@ -84,7 +84,5 @@ class AnswerViewSet(viewsets.ModelViewSet):
         question = serializer.validated_data.get("question")
 
         if question is None:
-            return Response(
-                {"error": "Question is not found"}, status.HTTP_404_NOT_FOUND
-            )
+            return Response({"error": "Question is not found"}, status.HTTP_404_NOT_FOUND)
         serializer.save(question=question)

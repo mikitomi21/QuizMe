@@ -36,9 +36,7 @@ class Command(BaseCommand):
                 username="admin",
                 password="zaq1@WSX",
             )
-            self.stdout.write(
-                self.style.SUCCESS(f"Successfully created superuser: {user.username}")
-            )
+            self.stdout.write(self.style.SUCCESS(f"Successfully created superuser: {user.username}"))
         except Exception as e:
             self.stdout.write(self.style.ERROR(f"Error creating superuser: {e}"))
 

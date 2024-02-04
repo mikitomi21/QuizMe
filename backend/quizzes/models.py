@@ -29,6 +29,4 @@ class Answer(models.Model):
     is_correct = models.BooleanField()
 
     def __str__(self):
-        return (
-            f"True: {self.text[:30]}" if self.is_correct else f"False: {self.text[:30]}"
-        )
+        return f"True: {self.text[:30]}" if self.is_correct else f"False: {self.text[:30]}"

@@ -13,6 +13,4 @@ class Command(BaseCommand):
         Answer.objects.all().delete()
         Quiz.objects.all().delete()
         CustomUser.objects.all().delete()
-        self.stdout.write(
-            self.style.SUCCESS(f"Successfully Deleted all data from database")
-        )
+        self.stdout.write(self.style.SUCCESS(f"Successfully Deleted all data from database"))
