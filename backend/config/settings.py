@@ -43,6 +43,7 @@ PROJECT_APPS = [
     "common",
     "quizzes",
     "users",
+    "user_results",
 ]
 
 THIRD_PARTY_APPS = [

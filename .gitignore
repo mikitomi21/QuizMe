@@ -1,2 +1,4 @@
 venv
 .idea/
+pyproject.toml
+.pre-commit-config.yaml
