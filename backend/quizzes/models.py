@@ -1,5 +1,6 @@
 from django.db import models
 from users.models import CustomUser
+from .fields import TypeField
 
 
 class Quiz(models.Model):
@@ -16,6 +17,7 @@ class Quiz(models.Model):
 class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     text = models.TextField()
+    question_type = TypeField()
 
     def __str__(self):
         return f"{self.quiz.title[:30]} > {self.text[:30]}"

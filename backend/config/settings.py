@@ -39,8 +39,9 @@ DJANGO_APPS = [
 ]
 
 PROJECT_APPS = [
+    "common",
     "quizzes",
-    "users"
+    "users",
 ]
 
 THIRD_PARTY_APPS = [

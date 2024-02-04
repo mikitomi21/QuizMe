@@ -11,7 +11,7 @@ class AdminQuiz(admin.ModelAdmin):
 
 @admin.register(Question)
 class AdminQuestion(admin.ModelAdmin):
-    list_display = ["quiz", "text"]
+    list_display = ["quiz", "text", "question_type"]
 
 
 @admin.register(Answer)
