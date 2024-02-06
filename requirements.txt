@@ -8,3 +8,4 @@ setuptools
 faker
 django-silk==5.0.4
 pre-commit
+factory_boy

@@ -17,16 +17,16 @@ class ResultDetailView(generics.RetrieveAPIView):
 
 class UserResultDetailView(generics.RetrieveAPIView):
     serializer_class = ResultSerializer
-    print("siema")
+    print("siema1")
 
     def get_queryset(self):
         pk = self.kwargs.get("pk")
-        print("siema")
+        print("siema2")
         return PlayerResultOfQuiz.objects.filter(user__id=pk)
 
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
-        print("siema")
+        print("siema3")
         print(instance)
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
