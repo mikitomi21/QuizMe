@@ -1,6 +1,4 @@
 from rest_framework.routers import DefaultRouter
-from django.urls import path
-from rest_framework_nested.routers import NestedDefaultRouter
 
 from quizzes.viewsets import QuizViewSet, QuestionViewSet, AnswerViewSet
 from users.viewsets import CustomUserViewSets
