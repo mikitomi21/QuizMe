@@ -8,7 +8,7 @@ class TestQuestions(APITestCase):
     def setUp(self):
         self.text = "text test"
         self.question_type = TypeField.CLOSED
-        self.quiz = QuizFactory
+        self.quiz = QuizFactory()
 
     def test_create_quiz(self):
         question = Question.objects.create(

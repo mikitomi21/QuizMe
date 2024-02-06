@@ -7,7 +7,7 @@ class TestQuestions(APITestCase):
     def setUp(self):
         self.text = "text test"
         self.is_correct = "True"
-        self.question = QuestionFactory
+        self.question = QuestionFactory()
 
     def test_create_quiz(self):
         answer = Answer.objects.create(
