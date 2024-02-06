@@ -15,7 +15,13 @@ class TestAnswer(APITestCase):
         Answer.objects.filter(text=self.text, is_correct=self.is_correct, question=self.question).delete()
 
     def test_create_answer(self):
-        answer = Answer.objects.create(
+        Answer.objects.create(
+            text=self.text,
+            is_correct=self.is_correct,
+            question=self.question,
+        )
+
+        answer = Answer.objects.get(
             text=self.text,
             is_correct=self.is_correct,
             question=self.question,

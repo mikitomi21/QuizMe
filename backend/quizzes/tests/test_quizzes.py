@@ -13,7 +13,13 @@ class TestQuizzes(APITestCase):
         Quiz.objects.filter(title=self.title, description=self.description, author=self.author).delete()
 
     def test_create_quiz(self):
-        quiz = Quiz.objects.create(
+        Quiz.objects.create(
+            title=self.title,
+            description=self.description,
+            author=self.author,
+        )
+
+        quiz = Quiz.objects.get(
             title=self.title,
             description=self.description,
             author=self.author,

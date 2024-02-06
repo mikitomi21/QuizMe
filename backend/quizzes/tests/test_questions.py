@@ -16,7 +16,13 @@ class TestQuestions(APITestCase):
         Question.objects.filter(text=self.text, question_type=self.question_type, quiz=self.quiz).delete()
 
     def test_create_question(self):
-        question = Question.objects.create(
+        Question.objects.create(
+            text=self.text,
+            question_type=self.question_type,
+            quiz=self.quiz,
+        )
+
+        question = Question.objects.get(
             text=self.text,
             question_type=self.question_type,
             quiz=self.quiz,
