@@ -2,3 +2,14 @@ venv
 .idea/
 pyproject.toml
 .pre-commit-config.yaml
+
+backend/users/__pycache__/
+backend/users/tests/__pycache__/
+
+backend/quizzes/__pycache__/
+backend/quizzes/tests/__pycache__/
+
+backend/user_results/__pycache__/
+
+backend/config/__pycache__/
+backend/common/__pycache__/
