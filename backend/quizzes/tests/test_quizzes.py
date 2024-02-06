@@ -9,6 +9,9 @@ class TestQuizzes(APITestCase):
         self.description = "title description"
         self.author = UserFactory()
 
+    def tearDown(self):
+        Quiz.objects.filter(title=self.title, description=self.description, author=self.author).delete()
+
     def test_create_quiz(self):
         quiz = Quiz.objects.create(
             title=self.title,
