@@ -1,7 +1,9 @@
 venv
 .idea/
-pyproject.toml
-.pre-commit-config.yaml
+backend/db.sqlite3
+
+backend/pyproject.toml
+backend/.pre-commit-config.yaml
 
 backend/users/__pycache__/
 backend/users/tests/__pycache__/

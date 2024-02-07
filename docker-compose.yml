@@ -5,7 +5,7 @@ services:
     build:
       dockerfile: compose/django/Dockerfile
     ports:
-      - 8000:8000
+      - "8000:8000"
     volumes:
       - ./backend:/app/backend
     environment:
@@ -21,7 +21,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - "5432:5432"
     environment:
       - POSTGRES_DB=app
       - POSTGRES_USER=postgres
